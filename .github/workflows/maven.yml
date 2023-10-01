@@ -40,6 +40,7 @@ jobs:
       - name: Diagnostic Logging
         run: |
           ls -la
+          ls -la target
       - name: Build and push Docker image
         run: |
           docker build --no-cache -t ${{ secrets.ACR_SERVER_NAME }}.azurecr.io/table-management-image:${{ github.sha }} .
