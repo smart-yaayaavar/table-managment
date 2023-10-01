@@ -18,9 +18,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '1.8'
-
+          cache: maven
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn clean install
 
   deploy:
     runs-on: ubuntu-latest
