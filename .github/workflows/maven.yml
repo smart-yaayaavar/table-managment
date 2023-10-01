@@ -28,9 +28,10 @@ jobs:
     needs: build
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: Login to Azure Container Registry
-      - uses: actions/checkout@v2
-      - uses: azure/docker-login@v1
+        uses: azure/docker-login@v1
         with:
           login-server: ${{ secrets.ACR_SERVER_NAME }}.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
@@ -43,11 +44,11 @@ jobs:
         run: |
           docker build --no-cache -t ${{ secrets.ACR_SERVER_NAME }}.azurecr.io/table-management-image:${{ github.sha }} .
           docker push ${{ secrets.ACR_SERVER_NAME }}.azurecr.io/table-management-image:${{ github.sha }}
-          
-          #- name: Deploy to Azure Web App
-          #  uses: azure/webapps-deploy@v2
-          # with:
-          #  app-name: '<your-azure-web-app-name>'
-          # images: '<your-acr-name>.azurecr.io/table-management-image:${{ github.sha }}'
-        #multi-container-config-type: 'compose'
+
+      #- name: Deploy to Azure Web App
+      #  uses: azure/webapps-deploy@v2
+       # with:
+        #  app-name: '<your-azure-web-app-name>'
+         # images: '<your-acr-name>.azurecr.io/table-management-image:${{ github.sha }}'
+          #multi-container-config-type: 'compose'
 
