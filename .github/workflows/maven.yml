@@ -40,7 +40,7 @@ jobs:
           ls -la
       - name: Build and push Docker image
         run: |
-          docker build -f './Dockerfile' --no-cache -t ${{ secrets.ACR_SERVER_NAME }}.azurecr.io/table-management-image:${{ github.sha }} .
+          docker build -f '/table-managment/Dockerfile' --no-cache -t ${{ secrets.ACR_SERVER_NAME }}.azurecr.io/table-management-image:${{ github.sha }} .
           docker push ${{ secrets.ACR_SERVER_NAME }}.azurecr.io/table-management-image:${{ github.sha }}
 
       #- name: Deploy to Azure Web App
