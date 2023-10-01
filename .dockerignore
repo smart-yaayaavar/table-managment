@@ -7,5 +7,3 @@
 */bin
 */obj
 **/.toolstarget
-**/src/test/**/target/
-**/src/main/**/target/
