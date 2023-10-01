@@ -1,4 +1,4 @@
 FROM openjdk:8
+COPY target/table-management-image.jar table-management-image.jar
 EXPOSE 8080
-ADD target/table-management-image.jar table-management-image.jar
-ENTRYPOINT ["java","-jar","/table-management-image.jar"]
+CMD ["java","-jar","/table-management-image.jar"]
