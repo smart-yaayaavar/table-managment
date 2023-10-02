@@ -12,6 +12,6 @@ public class FetchTabelDetails {
 
     @GetMapping("/table/details")
     public String getTableDetails(){
-        return "Hi Team";
+        return "Hi";
     }
 }
